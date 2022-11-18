@@ -5,6 +5,7 @@ import 'main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'tabbar.dart';
+import 'intro_slider.dart';
 
 class SecondRoute extends StatelessWidget {
   const SecondRoute({super.key});
@@ -20,12 +21,14 @@ class SecondRoute extends StatelessWidget {
             Text(
               "MYCABINET",
               style: TextStyle(
+                fontWeight: FontWeight.w300,
                   fontSize: 28, color: Color.fromRGBO(255, 255, 255, 1)),
             ),
             const SizedBox(height: 4),
             Text(
               "ваш мобильный ассистент",
               style: TextStyle(
+                fontWeight: FontWeight.w400,
                   color: Color.fromRGBO(255, 255, 255, 1), fontSize: 17),
             ),
             const SizedBox(height: 20),
@@ -103,11 +106,14 @@ class SecondRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  SizeTransition3(tabbar()),
+                  SizeTransition3(MyHomePage()),
                 );
               },
-              icon: SvgPicture.asset("assets/send.svg",),
-              label: Text("Вход с помощью My ID",
+              icon: SvgPicture.asset(
+                "assets/face-id-s.svg",
+              ),
+              label: Text(
+                "Вход с помощью My ID",
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             )

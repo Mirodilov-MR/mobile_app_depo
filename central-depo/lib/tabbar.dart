@@ -26,7 +26,7 @@ class tabbarState extends State<tabbar> {
               offset: Offset(0, 10),
             ),
           ],
-          borderRadius: BorderRadius.circular(50),
+          borderRadius: BorderRadius.circular(10),
         ),
         child: ListView.builder(
           itemCount: 4,
@@ -57,9 +57,9 @@ class tabbarState extends State<tabbar> {
                     width: index == currentIndex ? displayWidth * .32 : 0,
                     decoration: BoxDecoration(
                       color: index == currentIndex
-                          ? Colors.blueAccent.withOpacity(.2)
+                          ? Color.fromRGBO(0, 61, 166, 0.6)
                           : Colors.transparent,
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                 ),
@@ -89,9 +89,9 @@ class tabbarState extends State<tabbar> {
                                   ? '${listOfStrings[index]}'
                                   : '',
                               style: TextStyle(
-                                color: Colors.blueAccent,
+                                color: Colors.white, //tabbar text color
                                 fontWeight: FontWeight.w600,
-                                fontSize: 15,
+                                fontSize: 12,
                               ),
                             ),
                           ),
@@ -109,7 +109,7 @@ class tabbarState extends State<tabbar> {
                             listOfIcons[index],
                             size: displayWidth * .076,
                             color: index == currentIndex
-                                ? Colors.blueAccent
+                                ? Colors.white
                                 : Colors.black26,
                           ),
                         ],
@@ -133,7 +133,7 @@ class tabbarState extends State<tabbar> {
   ];
 
   List<String> listOfStrings = [
-    'Menu',
+    'Список услуг',
     'Download',
     'Send',
     'Profile',

@@ -20,14 +20,14 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       onSkip: () => Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => button_app_bar())),
       skipText: 'пропустить',
-      footerBgColor: Color.fromARGB(255, 21, 35, 228).withOpacity(.8),
+      footerBgColor: Color.fromRGBO(0, 61, 166, 1),
       activeDotColor: Colors.white,
       footerRadius: 18.0,
       indicatorType: IndicatorType.CIRCLE,
       slides: [
         IntroScreen(
           title: 'Добро пожаловать',
-          header: SvgPicture.asset("assets/page1.svg"),
+          header: SvgPicture.asset("assets/logo.svg"),
           description: 'UZX - ваш мобильный ассистент',
           headerBgColor: Color.fromRGBO(237, 244, 245, 1),
         ),
