@@ -32,31 +32,34 @@ class SecondRoute extends StatelessWidget {
                   color: Color.fromRGBO(255, 255, 255, 1), fontSize: 17),
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(310, 50),
-                  primary: Color.fromRGBO(
-                      255, 255, 255, 1), //background color of button
-                  side: BorderSide(
-                      width: 1, color: Colors.grey), //border width and color
-                  elevation: 10, //elevation of button
-                  shape: RoundedRectangleBorder(
-                      //to set border radius to button
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.all(0) //content padding inside button
-                  ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  SizeTransition3(button_app_bar()),
-                );
-              },
-              child: const Text(
-                'Вход с помощью Face ID',
-                style: TextStyle(fontSize: 17, color: Colors.black),
-              ),
-            ),
-            const SizedBox(height: 15),
+            
+            
+            
+            // ElevatedButton(
+            //   style: ElevatedButton.styleFrom(
+            //       fixedSize: const Size(310, 50),
+            //       primary: Color.fromRGBO(
+            //           255, 255, 255, 1), //background color of button
+            //       side: BorderSide(
+            //           width: 1, color: Colors.grey), //border width and color
+            //       elevation: 10, //elevation of button
+            //       shape: RoundedRectangleBorder(
+            //           //to set border radius to button
+            //           borderRadius: BorderRadius.circular(10)),
+            //       padding: EdgeInsets.all(0) //content padding inside button
+            //       ),
+            //   onPressed: () {
+            //     Navigator.push(
+            //       context,
+            //       SizeTransition3(tabbar()),
+            //     );
+            //   },
+            //   child: const Text(
+            //     'Вход с помощью Face ID',
+            //     style: TextStyle(fontSize: 17, color: Colors.black),
+            //   ),
+            // ),
+            // const SizedBox(height: 15),
 
             // ElevatedButton(
             //   style: ElevatedButton.styleFrom(
@@ -91,12 +94,12 @@ class SecondRoute extends StatelessWidget {
             // ),
             const SizedBox(height: 15),
             ElevatedButton.icon(
+              
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(310, 50),
                   primary: Color.fromRGBO(
                       255, 255, 255, 1), //background color of button
-                  side: BorderSide(
-                      width: 1, color: Colors.grey), //border width and color
+                   //border width and color
                   elevation: 10, //elevation of button
                   shape: RoundedRectangleBorder(
                       //to set border radius to button
@@ -106,15 +109,13 @@ class SecondRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  SizeTransition3(MyHomePage()),
+                  SizeTransition5(button_app_bar()),
                 );
               },
-              icon: SvgPicture.asset(
-                "assets/face-id-s.svg",
-              ),
+              icon: SvgPicture.asset("assets/face-id-s.svg", height: 40.0),
               label: Text(
                 "Вход с помощью My ID",
-                style: TextStyle(fontSize: 17, color: Colors.black),
+                style: TextStyle(fontSize: 17, color: Colors.black,),
               ),
             )
           ],

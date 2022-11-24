@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:flutter_svg/svg.dart';
 import 'main.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -13,19 +14,19 @@ class button_app_bar extends StatefulWidget {
 class _button_app_barState extends State<button_app_bar> {
   int selectedpage = 0;
 
-  final _pageNo = [Home(), MyCustomUI(), Message(), Menu()];
+  final _pageNo = [MyCustomUI(), Balance(), Message(), Menu()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: _pageNo[selectedpage],
         bottomNavigationBar: ConvexAppBar(
-            backgroundColor: Color.fromRGBO(70, 67, 211, 1),
+            backgroundColor: Color.fromRGBO(0, 61, 166, 1),
             items: [
-              TabItem(icon: Icons.home,   title: 'Домой'),
-              TabItem(icon: Icons.wallet, title: 'Счета'),
-              TabItem(icon: Icons.email,  title: 'Почта'),
-              TabItem(icon: Icons.menu,   title: 'Меню' ),
+              TabItem(icon: Icons.menu_open_rounded),
+              TabItem(icon: Icons.send,),
+              TabItem(icon: Icons.takeout_dining,),
+              TabItem(icon: Icons.person ),
             ],
             initialActiveIndex: selectedpage,
             onTap: (int index) {
@@ -36,7 +37,6 @@ class _button_app_barState extends State<button_app_bar> {
   }
 }
 
-//--------------------------------------------------------------------------------------------------------
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -50,67 +50,65 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //  ---------------------------------------------------------------------------------------------
-        //  APP BAR HERE IF U WANT REMOVE OR CHANGE IT
         appBar: AppBar(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
               bottom: Radius.circular(15),
             ),
           ),
-          actions: <Widget>[
-            new Stack(children: <Widget>[
-              new IconButton(
-                  icon: Icon(Icons.notifications, size: 30),
-                  onPressed: () {
-                    setState(() {
-                      var counter = 0;
-                    });
-                  }),
-              counter != 0
-                  ? new Positioned(
-                      right: 11,
-                      top: 11,
-                      child: new Container(
-                        padding: EdgeInsets.all(2),
-                        decoration: new BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(6),
-                        ),
-                        constraints: BoxConstraints(
-                          minWidth: 14,
-                          minHeight: 14,
-                        ),
-                        child: Text(
-                          '$counter',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 9,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                    )
-                  : new Container()
-            ])
-          ],
-          backgroundColor: Color.fromARGB(108, 12, 12, 248),
+          // actions: <Widget>[
+          //   new Stack(children: <Widget>[
+          //     new IconButton(
+          //         icon: Icon(Icons.notifications, size: 30),
+          //         onPressed: () {
+          //           setState(() {
+          //             var counter = 0;
+          //           });
+          //         }),
+          //     counter != 0
+          //         ? new Positioned(
+          //             right: 11,
+          //             top: 11,
+          //             child: new Container(
+          //               padding: EdgeInsets.all(2),
+          //               decoration: new BoxDecoration(
+          //                 color: Colors.red,
+          //                 borderRadius: BorderRadius.circular(6),
+          //               ),
+          //               constraints: BoxConstraints(
+          //                 minWidth: 14,
+          //                 minHeight: 14,
+          //               ),
+          //               child: Text(
+          //                 '$counter',
+          //                 style: TextStyle(
+          //                   color: Colors.white,
+          //                   fontSize: 9,
+          //                 ),
+          //                 textAlign: TextAlign.center,
+          //               ),
+          //             ),
+          //           )
+          //         : new Container()
+          //   ])
+          // ],
+          backgroundColor: Color.fromRGBO(0, 61, 166, 1),
           toolbarOpacity: 0.8, //appbar color
           automaticallyImplyLeading: false,
           centerTitle: true,
           title: Text(
-            'Главный экран',
+            'Исходящие заявки',
             style: TextStyle(
                 fontSize: 20,
-                color: Colors.black,
-                fontStyle: FontStyle.italic,
+                color: Colors.white,
+                // fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold),
           ),
         ),
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Text(
-          ' Счет: #5501278 ',
+          'test',
           textAlign: TextAlign.center,
           style: TextStyle(
             color: Colors.black,
@@ -135,30 +133,14 @@ class Balance extends StatelessWidget {
           ),
         ),
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blue,
-        actions: <Widget>[
-          TextButton.icon(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  SizeTransition3(AddButton()),
-                );
-              },
-              icon: const Icon(
-                Icons.add,
-                size: 18,
-                color: Colors.white,
-              ),
-              label: Text('Дабавит',
-                  style: TextStyle(fontSize: 18, color: Colors.white))),
-        ],
+        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
+        
       ),
       body: AnimationLimiter(
         child: ListView.builder(
           padding: EdgeInsets.all(_w / 30),
-          physics:
-              BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          itemCount: 20,
+          physics:BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          itemCount: 26,
           itemBuilder: (BuildContext context, int index) {
             return AnimationConfiguration.staggeredList(
               position: index,
@@ -205,10 +187,28 @@ class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(15),
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+            'Полученные заявки',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                // fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold),
+          ),
+      ),
       backgroundColor: Color.fromRGBO(237, 244, 245, 1),
       body: Center(
         child: Text(
-          'Message',
+          'Полученные заявки',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
@@ -229,10 +229,28 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(15),
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+            'Аккаунт',
+            style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+                // fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold),
+          ),
+      ),
       backgroundColor: Color.fromRGBO(237, 244, 245, 1),
       body: Center(
         child: Text(
-          'Menu',
+          'Аккаунт',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
@@ -281,7 +299,7 @@ class _AddButtonState extends State<AddButton> {
     );
   }
 }
-
+///list view
 class MyCustomUI extends StatefulWidget {
   @override
   _MyCustomUIState createState() => _MyCustomUIState();
@@ -350,7 +368,7 @@ class _MyCustomUIState extends State<MyCustomUI>
                 CircleAvatar(
                   backgroundColor: Colors.blue.withOpacity(.1),
                   radius: _w / 15,
-                  child: FlutterLogo(size: 30),
+                  child: SvgPicture.asset("assets/handshake.svg", height: 30.0),
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
@@ -376,7 +394,7 @@ class _MyCustomUIState extends State<MyCustomUI>
                       )
                     ],
                   ),
-                ),Icon(Icons.navigate_next_outlined)
+                ),
               ],
             ),
           ),
@@ -391,28 +409,22 @@ class _MyCustomUIState extends State<MyCustomUI>
     return Scaffold(
       backgroundColor: Color(0xffF5F5F5),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(15),
           ),
         ),
-        automaticallyImplyLeading: true,
-        actions: <Widget>[
-          TextButton.icon(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  SizeTransition3(AddButton()),
-                );
-              },
-              icon: const Icon(
-                Icons.add,
-                size: 18,
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        title: Text(
+            'Список услуг',
+            style: TextStyle(
+                fontSize: 20,
                 color: Colors.white,
-              ),
-              label: Text('Дабавит',
-                  style: TextStyle(fontSize: 18, color: Colors.white))),
-        ],
+                // fontStyle: FontStyle.italic,
+                fontWeight: FontWeight.bold),
+          ),
       ),
       body: Stack(
         children: [

@@ -1,8 +1,10 @@
 import 'SplashScreen.dart';
 import 'package:flutter/material.dart';
+
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -18,11 +20,14 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-class SizeTransition3 extends PageRouteBuilder {
-  SizeTransition3(this.page)
+
+class SizeTransition5 extends PageRouteBuilder {
+  final Widget page;
+
+  SizeTransition5(this.page)
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
-          transitionDuration: Duration(milliseconds: 2000),
+          transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
             animation = CurvedAnimation(
@@ -30,7 +35,7 @@ class SizeTransition3 extends PageRouteBuilder {
                 parent: animation,
                 reverseCurve: Curves.fastOutSlowIn);
             return Align(
-              alignment: Alignment.center,
+              alignment: Alignment.centerRight,
               child: SizeTransition(
                 axis: Axis.horizontal,
                 sizeFactor: animation,
@@ -40,6 +45,4 @@ class SizeTransition3 extends PageRouteBuilder {
             );
           },
         );
-
-  final Widget page;
 }
