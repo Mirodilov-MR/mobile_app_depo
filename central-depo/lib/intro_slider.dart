@@ -19,7 +19,7 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       ),
       onSkip: () => Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => button_app_bar())),
-      skipText: 'пропустить',
+      skipText: ('пропустить'),
       footerBgColor: Color.fromRGBO(0, 61, 166, 1),
       activeDotColor: Colors.white,
       footerRadius: 18.0,
@@ -57,13 +57,3 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     );
   }
 }
-// class NextPage extends StatefulWidget {
-//   @override
-//   _NextPageState createState() => _NextPageState();
-// }
-// class _NextPageState extends State<NextPage> {
-//   @override
-//   Widget build(BuildContext context) => Container(
-//         color: Colors.white,
-//       );
-// }

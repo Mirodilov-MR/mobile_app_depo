@@ -109,7 +109,7 @@ class SecondRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  SizeTransition5(button_app_bar()),
+                  SizeTransition5(MyHomePage()),
                 );
               },
               icon: SvgPicture.asset("assets/face-id-s.svg", height: 40.0),

@@ -143,7 +143,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
-                child: SvgPicture.asset("assets/logo.svg"),
+                child: SvgPicture.asset("assets/logo_n.svg"),
                 
               ),
             ),

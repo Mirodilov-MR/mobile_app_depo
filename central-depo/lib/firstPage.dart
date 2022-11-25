@@ -14,7 +14,7 @@ class button_app_bar extends StatefulWidget {
 class _button_app_barState extends State<button_app_bar> {
   int selectedpage = 0;
 
-  final _pageNo = [MyCustomUI(), Balance(), Message(), Menu()];
+  final _pageNo = [MyCustomUI(), Home(), Message(), Menu()];
 
   @override
   Widget build(BuildContext context) {
@@ -56,42 +56,6 @@ class _HomeState extends State<Home> {
               bottom: Radius.circular(15),
             ),
           ),
-          // actions: <Widget>[
-          //   new Stack(children: <Widget>[
-          //     new IconButton(
-          //         icon: Icon(Icons.notifications, size: 30),
-          //         onPressed: () {
-          //           setState(() {
-          //             var counter = 0;
-          //           });
-          //         }),
-          //     counter != 0
-          //         ? new Positioned(
-          //             right: 11,
-          //             top: 11,
-          //             child: new Container(
-          //               padding: EdgeInsets.all(2),
-          //               decoration: new BoxDecoration(
-          //                 color: Colors.red,
-          //                 borderRadius: BorderRadius.circular(6),
-          //               ),
-          //               constraints: BoxConstraints(
-          //                 minWidth: 14,
-          //                 minHeight: 14,
-          //               ),
-          //               child: Text(
-          //                 '$counter',
-          //                 style: TextStyle(
-          //                   color: Colors.white,
-          //                   fontSize: 9,
-          //                 ),
-          //                 textAlign: TextAlign.center,
-          //               ),
-          //             ),
-          //           )
-          //         : new Container()
-          //   ])
-          // ],
           backgroundColor: Color.fromRGBO(0, 61, 166, 1),
           toolbarOpacity: 0.8, //appbar color
           automaticallyImplyLeading: false,
@@ -101,21 +65,36 @@ class _HomeState extends State<Home> {
             style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,
-                // fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.bold),
           ),
         ),
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        body: Text(
-          'test',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 17,
+        body: Center(
+        child: Container(
+          
+          // padding: const EdgeInsets.all(10.0),
+        width: 400.0,
+        height: 615.0,
+        
+        
+          child: Container(
+            width: 400.0,
+            height: 215.0,
+            // Container.color should not be set when decoration is set.
+            decoration: BoxDecoration(
+              
+              color: Color.fromARGB(255, 59, 183, 255),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            // Container.padding is implementd internally with Padding widgets.
+            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
+            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
+           
           ),
-        ));
+        
+      ),
+    ));
   }
 }
 
@@ -207,11 +186,30 @@ class _MessageState extends State<Message> {
       ),
       backgroundColor: Color.fromRGBO(237, 244, 245, 1),
       body: Center(
-        child: Text(
-          'Полученные заявки',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        child: Container(
+          
+          // padding: const EdgeInsets.all(10.0),
+        width: 400.0,
+        height: 615.0,
+        
+        
+          child: Container(
+            width: 400.0,
+            height: 215.0,
+            // Container.color should not be set when decoration is set.
+            decoration: BoxDecoration(
+              
+              color: Color.fromARGB(255, 1, 69, 109),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            // Container.padding is implementd internally with Padding widgets.
+            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
+            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
+           child: const Text("helsadads",style:TextStyle(color: Colors.white,fontSize: 17)),
+          ),
+        
       ),
+    )
     );
   }
 }
@@ -249,11 +247,30 @@ class _MenuState extends State<Menu> {
       ),
       backgroundColor: Color.fromRGBO(237, 244, 245, 1),
       body: Center(
-        child: Text(
-          'Аккаунт',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        child: Container(
+          
+          // padding: const EdgeInsets.all(10.0),
+        width: 400.0,
+        height: 615.0,
+        
+        
+          child: Container(
+            width: 400.0,
+            height: 215.0,
+            // Container.color should not be set when decoration is set.
+            decoration: BoxDecoration(
+              
+              color: Color.fromARGB(255, 1, 69, 109),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            // Container.padding is implementd internally with Padding widgets.
+            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
+            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
+           child: const Text("helsadads",style:TextStyle(color: Colors.white,fontSize: 17)),
+          ),
+        
       ),
+    )
     );
   }
 }
