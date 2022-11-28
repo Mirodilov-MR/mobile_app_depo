@@ -6,6 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'tabbar.dart';
 import 'intro_slider.dart';
+import 'grid2.dart';
 
 class SecondRoute extends StatelessWidget {
   const SecondRoute({super.key});
@@ -21,20 +22,20 @@ class SecondRoute extends StatelessWidget {
             Text(
               "MYCABINET",
               style: TextStyle(
-                fontWeight: FontWeight.w300,
-                  fontSize: 28, color: Color.fromRGBO(255, 255, 255, 1)),
+                  fontWeight: FontWeight.w300,
+                  fontSize: 28,
+                  color: Color.fromRGBO(255, 255, 255, 1)),
             ),
             const SizedBox(height: 4),
             Text(
               "ваш мобильный ассистент",
               style: TextStyle(
-                fontWeight: FontWeight.w400,
-                  color: Color.fromRGBO(255, 255, 255, 1), fontSize: 17),
+                  fontWeight: FontWeight.w400,
+                  color: Color.fromRGBO(255, 255, 255, 1),
+                  fontSize: 17),
             ),
             const SizedBox(height: 20),
-            
-            
-            
+
             // ElevatedButton(
             //   style: ElevatedButton.styleFrom(
             //       fixedSize: const Size(310, 50),
@@ -94,12 +95,11 @@ class SecondRoute extends StatelessWidget {
             // ),
             const SizedBox(height: 15),
             ElevatedButton.icon(
-              
               style: ElevatedButton.styleFrom(
                   fixedSize: const Size(310, 50),
                   primary: Color.fromRGBO(
                       255, 255, 255, 1), //background color of button
-                   //border width and color
+                  //border width and color
                   elevation: 10, //elevation of button
                   shape: RoundedRectangleBorder(
                       //to set border radius to button
@@ -115,7 +115,10 @@ class SecondRoute extends StatelessWidget {
               icon: SvgPicture.asset("assets/face-id-s.svg", height: 40.0),
               label: Text(
                 "Вход с помощью My ID",
-                style: TextStyle(fontSize: 17, color: Colors.black,),
+                style: TextStyle(
+                  fontSize: 17,
+                  color: Colors.black,
+                ),
               ),
             )
           ],

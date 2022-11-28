@@ -50,6 +50,7 @@ dependencies:
   introduction_screen: ^3.0.2
   validators: ^3.0.0
   cupertino_tabbar: ^2.0.0
+  new_gradient_app_bar: ^0.2.0
 
 dev_dependencies:
   flutter_test:
