@@ -583,3 +583,171 @@
 //     );
 //   }
 // }
+
+
+
+
+//-------------------------------------------------------------------------------------------------------------------------
+
+/* class AddButton extends StatefulWidget {
+  const AddButton({Key? key}) : super(key: key);
+
+  @override
+  _AddButtonState createState() => _AddButtonState();
+}
+
+class _AddButtonState extends State<AddButton> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'Новый счет',
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.bold),
+        ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(15),
+          ),
+        ),
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.blue,
+      ),
+      backgroundColor: Color.fromRGBO(237, 244, 245, 1),
+      body: Center(
+        child: Text(
+          'listview',
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      ),
+    );
+  }
+}
+*/
+
+
+
+
+//--------------------------------------------------------------------------------------------------------
+
+/* class Balance extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    double _w = MediaQuery.of(context).size.width;
+    return Scaffold(
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
+            bottom: Radius.circular(15),
+          ),
+        ),
+        automaticallyImplyLeading: false,
+        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
+      ),
+      body: AnimationLimiter(
+        child: ListView.builder(
+          padding: EdgeInsets.all(_w / 30),
+          physics:
+              BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
+          itemCount: 26,
+          itemBuilder: (BuildContext context, int index) {
+            return AnimationConfiguration.staggeredList(
+              position: index,
+              delay: Duration(milliseconds: 100),
+              child: SlideAnimation(
+                duration: Duration(milliseconds: 2500),
+                curve: Curves.fastLinearToSlowEaseIn,
+                horizontalOffset: -300,
+                verticalOffset: -850,
+                child: Container(
+                  margin: EdgeInsets.only(bottom: _w / 20),
+                  height: _w / 4,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 40,
+                        spreadRadius: 10,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+*/
+
+
+/*
+class Menu extends StatefulWidget {
+  const Menu({Key? key}) : super(key: key);
+
+  @override
+  _MenuState createState() => _MenuState();
+}
+
+class _MenuState extends State<Menu> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+       extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        brightness: Brightness.light,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+            child: Container(
+              color: Colors.transparent,
+            ),
+          ),
+        ),
+        title: Text(
+          'Аккаунт',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+        backgroundColor: Color.fromRGBO(237, 244, 245, 1),
+        body: Center(
+            child: Container(
+
+                // padding: const EdgeInsets.all(10.0),
+                width: 400.0,
+                height: 615.0,
+                child: Container(
+                  width: 400.0,
+                  height: 215.0,
+                  // Container.color should not be set when decoration is set.
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(255, 1, 69, 109),
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  // Container.padding is implementd internally with Padding widgets.
+                  // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
+                  padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
+                  child: TextButton(
+                    child: Text(
+                      "Сменить анкетные данные",
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    onPressed: () {},
+                  ),
+                ))));
+  }
+}
+*/

@@ -178,24 +178,24 @@ class PageTransition extends PageRouteBuilder {
         );
 }
 
-class SecondPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        brightness: Brightness.dark,
-        backgroundColor: Colors.deepPurple,
-        centerTitle: true,
-        title: Text(
-          'YOUR APP\'S NAME',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 20,
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class SecondPage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       appBar: AppBar(
+//         brightness: Brightness.dark,
+//         backgroundColor: Colors.deepPurple,
+//         centerTitle: true,
+//         title: Text(
+//           'YOUR APP\'S NAME',
+//           style: TextStyle(
+//             color: Colors.white,
+//             fontWeight: FontWeight.bold,
+//             fontSize: 20,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

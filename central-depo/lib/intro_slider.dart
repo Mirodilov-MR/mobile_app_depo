@@ -29,24 +29,24 @@ class MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           title: 'Добро пожаловать',
           header: SvgPicture.asset("assets/logo.svg"),
           description: 'UZX - ваш мобильный ассистент',
-          headerBgColor: Color.fromRGBO(237, 244, 245, 1),
+          headerBgColor: Colors.white,
         ),
         IntroScreen(
           title: 'Всё всегда под рукой',
-          headerBgColor: Color.fromRGBO(237, 244, 245, 1),
+          headerBgColor: Colors.white,
           header: SvgPicture.asset("assets/page2.svg"),
           description: "Полный функционал у вас в телефоне",
         ),
         IntroScreen(
           title: 'Получай важные сообщения',
-          headerBgColor: Color.fromRGBO(237, 244, 245, 1),
+          headerBgColor: Colors.white,
           header: SvgPicture.asset("assets/page3.svg"),
           description: "Полный функционал у вас в телефоне",
           
         ),
         IntroScreen(
           title: 'Всегда будьте в сети',
-          headerBgColor: Color.fromRGBO(237, 244, 245, 1),
+          headerBgColor: Colors.white,
           header: SvgPicture.asset("assets/page4.svg"),
           description: "Вам не придется сидеть перед компьютером 24 часа",
         ),

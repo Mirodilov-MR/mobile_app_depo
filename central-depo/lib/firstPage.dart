@@ -1,10 +1,11 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/svg.dart';
-import 'main.dart';
 import 'package:flutter/services.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+
 class button_app_bar extends StatefulWidget {
   @override
   _button_app_barState createState() => _button_app_barState();
@@ -13,19 +14,23 @@ class button_app_bar extends StatefulWidget {
 class _button_app_barState extends State<button_app_bar> {
   int selectedpage = 0;
 
-  final _pageNo = [grid2(), Balance(), Message(), Menu()];
+  final _pageNo = [grid2(), Home(), Message(), Menu()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: _pageNo[selectedpage],
         bottomNavigationBar: ConvexAppBar(
-            backgroundColor: Color.fromRGBO(0, 61, 166, 1),
+            backgroundColor: Color.fromARGB(255, 12, 44, 100),
             items: [
               TabItem(icon: Icons.menu_open_rounded),
-              TabItem(icon: Icons.send,),
-              TabItem(icon: Icons.takeout_dining,),
-              TabItem(icon: Icons.person ),
+              TabItem(
+                icon: Icons.send,
+              ),
+              TabItem(
+                icon: Icons.takeout_dining,
+              ),
+              TabItem(icon: Icons.person),
             ],
             initialActiveIndex: selectedpage,
             onTap: (int index) {
@@ -49,110 +54,52 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(15),
-            ),
-          ),
-          backgroundColor: Color.fromRGBO(0, 61, 166, 1),
-          toolbarOpacity: 0.8, //appbar color
           automaticallyImplyLeading: false,
           centerTitle: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          brightness: Brightness.light,
+          flexibleSpace: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+              child: Container(
+                color: Colors.transparent,
+              ),
+            ),
+          ),
           title: Text(
             'Исходящие заявки',
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
-// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Center(
-        child: Container(
-          
-          // padding: const EdgeInsets.all(10.0),
-        width: 400.0,
-        height: 615.0,
-        
-        
           child: Container(
-            width: 400.0,
-            height: 215.0,
-            // Container.color should not be set when decoration is set.
             decoration: BoxDecoration(
-              
-              color: Color.fromARGB(255, 59, 183, 255),
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            // Container.padding is implementd internally with Padding widgets.
-            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
-            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
-           
-          ),
-        
-      ),
-    ));
-  }
-}
-
-//--------------------------------------------------------------------------------------------------------
-
-class Balance extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    double _w = MediaQuery.of(context).size.width;
-    return Scaffold(
-      appBar: AppBar(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
-          ),
-        ),
-        automaticallyImplyLeading: false,
-        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
-        
-      ),
-      body: AnimationLimiter(
-        child: ListView.builder(
-          padding: EdgeInsets.all(_w / 30),
-          physics:BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
-          itemCount: 26,
-          itemBuilder: (BuildContext context, int index) {
-            return AnimationConfiguration.staggeredList(
-              position: index,
-              delay: Duration(milliseconds: 100),
-              child: SlideAnimation(
-                duration: Duration(milliseconds: 2500),
-                curve: Curves.fastLinearToSlowEaseIn,
-                horizontalOffset: -300,
-                verticalOffset: -850,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: _w / 20),
-                  height: _w / 4,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.1),
-                        blurRadius: 40,
-                        spreadRadius: 10,
-                      ),
-                    ],
-                  ),
+                gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color(0xff7DDFFF),
+                Color.fromARGB(255, 11, 7, 221),
+              ],
+            )),
+            child: Center(
+              child: Text(
+                'List',
+                style: TextStyle(
+                  fontSize: 48.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
               ),
-            );
-          },
-        ),
-      ),
-    );
+            ),
+          ),
+        ));
   }
 }
-
-//--------------------------------------------------------------------------------------------------------
 
 class Message extends StatefulWidget {
   const Message({Key? key}) : super(key: key);
@@ -165,55 +112,53 @@ class _MessageState extends State<Message> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
-          ),
-        ),
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text(
-            'Полученные заявки',
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                // fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        brightness: Brightness.light,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+            child: Container(
+              color: Colors.transparent,
+            ),
           ),
+        ),
+        title: Text(
+          'Полученные заявки',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
       ),
       backgroundColor: Color.fromRGBO(237, 244, 245, 1),
       body: Center(
         child: Container(
-          
-          // padding: const EdgeInsets.all(10.0),
-        width: 400.0,
-        height: 615.0,
-        
-        
-          child: Container(
-            width: 400.0,
-            height: 215.0,
-            // Container.color should not be set when decoration is set.
-            decoration: BoxDecoration(
-              
-              color: Color.fromARGB(255, 1, 69, 109),
-              borderRadius: BorderRadius.circular(10.0),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xff7DDFFF),
+              Color.fromARGB(255, 11, 7, 221),
+            ],
+          )),
+          child: Center(
+            child: Text(
+              'List',
+              style: TextStyle(
+                fontSize: 48.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
-            // Container.padding is implementd internally with Padding widgets.
-            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
-            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
-           child: const Text("helsadads",style:TextStyle(color: Colors.white,fontSize: 17)),
           ),
-        
+        ),
       ),
-    )
     );
   }
 }
-
-//--------------------------------------------------------------------------------------------------------
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -226,111 +171,63 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(0, 61, 166, 1),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
-          ),
-        ),
         automaticallyImplyLeading: false,
         centerTitle: true,
-        title: Text(
-            'Аккаунт',
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-                // fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.bold),
-          ),
-      ),
-      backgroundColor: Color.fromRGBO(237, 244, 245, 1),
-      body: Center(
-        child: Container(
-          
-          // padding: const EdgeInsets.all(10.0),
-        width: 400.0,
-        height: 615.0,
-          child: Container(
-            width: 400.0,
-            height: 215.0,
-            // Container.color should not be set when decoration is set.
-            decoration: BoxDecoration(
-              
-              color: Color.fromARGB(255, 1, 69, 109),
-              borderRadius: BorderRadius.circular(10.0),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        brightness: Brightness.light,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+            child: Container(
+              color: Colors.transparent,
             ),
-            // Container.padding is implementd internally with Padding widgets.
-            // const EdgeInsets.fromLTRB: specify padding for left/right/top/bottom.
-            padding: const EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0),
-           child:  TextButton(
-              child: Text(
-                "Сменить анкетные данные",
-                style: TextStyle(fontSize: 25),
-              ),
-              onPressed: () {}, 
-          
-        
-      ),
-    )
-    )));
-  }
-}
-
-//--------------------------------------------------------------------------------------------------------
-
-class AddButton extends StatefulWidget {
-  const AddButton({Key? key}) : super(key: key);
-
-  @override
-  _AddButtonState createState() => _AddButtonState();
-}
-
-class _AddButtonState extends State<AddButton> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          'Новый счет',
-          style: TextStyle(
-              fontSize: 20,
-              color: Colors.black,
-              fontStyle: FontStyle.italic,
-              fontWeight: FontWeight.bold),
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(15),
           ),
         ),
-        automaticallyImplyLeading: true,
-        backgroundColor: Colors.blue,
-      ),
-      backgroundColor: Color.fromRGBO(237, 244, 245, 1),
-      body: Center(
-        child: Text(
-          'listview',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        title: Text(
+          'Аккаунт',
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
+      body:  Center(
+          child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                Color(0xff7DDFFF),
+                Color.fromARGB(255, 11, 7, 221),
+              ],
+            ),
+            ),
+            child: Center(
+              child: Text(
+                'List',
+                style: TextStyle(
+                  fontSize: 48.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+        )
     );
   }
 }
 
-
-
-
 class grid2 extends StatefulWidget {
   @override
-  _MyCustomUIState createState() => _MyCustomUIState();
+  _grid2State createState() => _grid2State();
 }
 
-class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
- late AnimationController _controller;
- late AnimationController _controller2;
- late Animation<double> _animation;
+class _grid2State extends State<grid2> with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late AnimationController _controller2;
+  late Animation<double> _animation;
   late Animation<double> _animation2;
 
   @override
@@ -371,14 +268,26 @@ class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double _w = MediaQuery.of(context).size.width;
     return Scaffold(
-       appBar: NewGradientAppBar(
-    title: Text('Список услуг'),
-    gradient: LinearGradient(colors: [
-       Colors.cyan,
-      Colors.indigo,
-      ])
-  ),
-      
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        brightness: Brightness.light,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+            child: Container(
+              color: Colors.transparent,
+            ),
+          ),
+        ),
+        title: Text(
+          'Список услуг',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
       body: Stack(
         children: [
           // background color
@@ -390,58 +299,68 @@ class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
                 BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()),
             children: [
               SizedBox(height: _w / 5.5),
-              card('Нотариально заверенный договор', Icons.handshake_sharp,
+              card('Нотариально заверенный договор', Icons.handshake_outlined,
                   RouteWhereYouGo()),
-              card('Внесение ценных бумаг в уставной фонд',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Дополнительное соглашение',  Icons.handshake_sharp,
+              card('Внесение ценных бумаг в уставной фонд',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Дополнительное соглашение', Icons.handshake_outlined,
                   RouteWhereYouGo2()),
-              card('Отчуждение',  Icons.handshake_sharp,
-                  RouteWhereYouGo()),
-              card('Передача ценных бумаг государству в лице уполномоченных им лиц по договору',  Icons.handshake_sharp,
+              card('Отчуждение', Icons.handshake_outlined, RouteWhereYouGo()),
+              card(
+                  'Передача ценных бумаг государству в лице уполномоченных им лиц по договору',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo3()),
-              card('Заявка на формирование реестра (При владении больше 5%)',  Icons.handshake_sharp,
-                  RouteWhereYouGo4()),
-              card('Расторжение внебиржевой сделки, находящейся в процессе исполнения',  Icons.handshake_sharp,
+              card('Заявка на формирование реестра (При владении больше 5%)',
+                  Icons.handshake_outlined, RouteWhereYouGo4()),
+              card(
+                  'Расторжение внебиржевой сделки, находящейся в процессе исполнения',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo()),
-              card('Нотариально заверенный договор',  Icons.handshake_sharp,
+              card('Нотариально заверенный договор', Icons.handshake_outlined,
                   RouteWhereYouGo()),
-              card('Внесение ценных бумаг в уставной фонд',  Icons.handshake_sharp,
+              card('Внесение ценных бумаг в уставной фонд',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Дополнительное соглашение', Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Дополнительное соглашение',  Icons.handshake_sharp,
+              card(
+                  'Расторжение внебиржевой сделки, находящейся в процессе исполнения',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Расторжение внебиржевой сделки, находящейся в процессе исполнения', Icons.handshake_sharp,
+              card('Заявление о приёме ценных бумаг принадлежащих государству',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Прочие информационные услуги', Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Заявление о приёме ценных бумаг принадлежащих государству',  Icons.handshake_sharp,
+              card(
+                  'Купля-продажа (при размещении и выкупе эмитентом собственных выпущенных ценных бумаг)',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Прочие информационные услуги',  Icons.handshake_sharp,
+              card(
+                  'Наследование', Icons.handshake_outlined, RouteWhereYouGo1()),
+              card(
+                  'Безвозмездная передача ценных бумаг государству в лице уполномоченных им лиц',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Купля-продажа (при размещении и выкупе эмитентом собственных выпущенных ценных бумаг)',  Icons.handshake_sharp,
+              card('Дарение', Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Залог', Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Передача ценных бумаг при расчете с учредителями',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Передача в доверительное или оперативное управление',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Смена владельца ценных бумаг в связи с реорганизацией',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Иная сделка приводящей к смене владельца',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card(
+                  'Купля-продажа акций по решению Президента Республики Узбекистан',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Наследование',  Icons.handshake_sharp,
+              card(
+                  'Регистрация дополнительного соглашения к зарегистрированной внебиржевой сделке с ценными бумагами',
+                  Icons.handshake_outlined,
                   RouteWhereYouGo1()),
-              card('Безвозмездная передача ценных бумаг государству в лице уполномоченных им лиц',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Дарение',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Залог',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Передача ценных бумаг при расчете с учредителями',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Передача в доверительное или оперативное управление',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Смена владельца ценных бумаг в связи с реорганизацией',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Иная сделка приводящей к смене владельца',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Купля-продажа акций по решению Президента Республики Узбекистан',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Регистрация дополнительного соглашения к зарегистрированной внебиржевой сделке с ценными бумагами',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Предоставление сервиса "Электронное голосование" eVOTE',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
-              card('Отчуждение',  Icons.handshake_sharp,
-                  RouteWhereYouGo1()),
+              card('Предоставление сервиса "Электронное голосование" eVOTE',
+                  Icons.handshake_outlined, RouteWhereYouGo1()),
+              card('Отчуждение', Icons.handshake_outlined, RouteWhereYouGo1()),
             ],
           ),
         ],
@@ -467,32 +386,12 @@ class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
               fontWeight: FontWeight.w400,
             ),
           ),
-          actions: [
-            IconButton(
-              tooltip: 'Settings',
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              icon: Icon(Icons.settings, color: Colors.black.withOpacity(.7)),
-              onPressed: () {
-                HapticFeedback.lightImpact();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return RouteWhereYouGo();
-                    },
-                  ),
-                );
-              },
-            ),
-            Text('  '),
-          ],
         ),
       ),
     );
   }
 
-  Widget card(String title,  /*String subtitle,*/ IconData icon, Widget route) {
+  Widget card(String title, /*String subtitle,*/ IconData icon, Widget route) {
     double _w = MediaQuery.of(context).size.width;
     return Opacity(
       opacity: _animation.value,
@@ -530,7 +429,7 @@ class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
                       child: Icon(
                         icon,
                         color: Colors.white,
-                        size: _w / 10,
+                        size: _w / 8,
                       ),
                     ),
                     SizedBox(width: _w / 40),
@@ -548,7 +447,7 @@ class _MyCustomUIState extends State<grid2> with TickerProviderStateMixin {
                             textAlign: TextAlign.start,
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize:  17,
+                              fontSize: 17,
                               fontWeight: FontWeight.bold,
                               letterSpacing: 1,
                               wordSpacing: 1,
@@ -598,7 +497,6 @@ class backgroundColor extends StatelessWidget {
           colors: [
             Color(0xff7DDFFF),
             Color.fromARGB(255, 11, 7, 221),
-           
           ],
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
@@ -624,6 +522,7 @@ class RouteWhereYouGo extends StatelessWidget {
     );
   }
 }
+
 class RouteWhereYouGo1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -640,6 +539,7 @@ class RouteWhereYouGo1 extends StatelessWidget {
     );
   }
 }
+
 class RouteWhereYouGo2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -656,6 +556,7 @@ class RouteWhereYouGo2 extends StatelessWidget {
     );
   }
 }
+
 class RouteWhereYouGo3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -672,6 +573,7 @@ class RouteWhereYouGo3 extends StatelessWidget {
     );
   }
 }
+
 class RouteWhereYouGo4 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

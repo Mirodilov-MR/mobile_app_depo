@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'firstPage.dart';
 import 'main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:introduction_screen/introduction_screen.dart';
-import 'tabbar.dart';
 import 'intro_slider.dart';
-import 'grid2.dart';
 
 class SecondRoute extends StatelessWidget {
   const SecondRoute({super.key});
@@ -96,8 +93,7 @@ class SecondRoute extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(310, 50),
-                  primary: Color.fromRGBO(
+                  fixedSize: const Size(310, 50), backgroundColor: Color.fromRGBO(
                       255, 255, 255, 1), //background color of button
                   //border width and color
                   elevation: 10, //elevation of button
