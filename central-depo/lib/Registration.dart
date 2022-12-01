@@ -4,6 +4,7 @@ import 'main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'intro_slider.dart';
+import 'Untitled-2.dart';
 
 class SecondRoute extends StatelessWidget {
   const SecondRoute({super.key});
@@ -33,30 +34,30 @@ class SecondRoute extends StatelessWidget {
             ),
             const SizedBox(height: 20),
 
-            // ElevatedButton(
-            //   style: ElevatedButton.styleFrom(
-            //       fixedSize: const Size(310, 50),
-            //       primary: Color.fromRGBO(
-            //           255, 255, 255, 1), //background color of button
-            //       side: BorderSide(
-            //           width: 1, color: Colors.grey), //border width and color
-            //       elevation: 10, //elevation of button
-            //       shape: RoundedRectangleBorder(
-            //           //to set border radius to button
-            //           borderRadius: BorderRadius.circular(10)),
-            //       padding: EdgeInsets.all(0) //content padding inside button
-            //       ),
-            //   onPressed: () {
-            //     Navigator.push(
-            //       context,
-            //       SizeTransition3(tabbar()),
-            //     );
-            //   },
-            //   child: const Text(
-            //     'Вход с помощью Face ID',
-            //     style: TextStyle(fontSize: 17, color: Colors.black),
-            //   ),
-            // ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  fixedSize: const Size(310, 50),
+                  primary: Color.fromRGBO(
+                      255, 255, 255, 1), //background color of button
+                  side: BorderSide(
+                      width: 1, color: Colors.grey), //border width and color
+                  elevation: 10, //elevation of button
+                  shape: RoundedRectangleBorder(
+                      //to set border radius to button
+                      borderRadius: BorderRadius.circular(10)),
+                  padding: EdgeInsets.all(0) //content padding inside button
+                  ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  Sizetransition(TextFormFieldExample()),
+                );
+              },
+              child: const Text(
+                'test button',
+                style: TextStyle(fontSize: 17, color: Colors.black),
+              ),
+            ),
             // const SizedBox(height: 15),
 
             // ElevatedButton(
@@ -93,19 +94,20 @@ class SecondRoute extends StatelessWidget {
             const SizedBox(height: 15),
             ElevatedButton.icon(
               style: ElevatedButton.styleFrom(
-                  fixedSize: const Size(310, 50), backgroundColor: Color.fromRGBO(
-                      255, 255, 255, 1), //background color of button
-                  //border width and color
-                  elevation: 10, //elevation of button
-                  shape: RoundedRectangleBorder(
-                      //to set border radius to button
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.all(0) //content padding inside button
-                  ),
+                fixedSize: const Size(310, 50),
+                backgroundColor: Color.fromRGBO(
+                    255, 255, 255, 1), //background color of button
+                //border width and color
+                elevation: 10, //elevation of button
+                shape: RoundedRectangleBorder(
+                    //to set border radius to button
+                    borderRadius: BorderRadius.circular(10)),
+                padding: EdgeInsets.all(0), //content padding inside button
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  SizeTransition5(MyHomePage()),
+                  Sizetransition(MyHomePage()),
                 );
               },
               icon: SvgPicture.asset("assets/face-id-s.svg", height: 40.0),
@@ -116,7 +118,7 @@ class SecondRoute extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -132,10 +134,8 @@ class face_id_login_page extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8),
       child: IntroductionScreen(
-        globalBackgroundColor: Color.fromRGBO(0, 61, 166, 1),
+        globalBackgroundColor: Color.fromARGB(255, 237, 239, 241),
         next: const Icon(Icons.navigate_next),
-        // showBackButton: true, ! showBack and showSkip can't be both be true.
-        // back: const Icon(Icons.arrow_back),
         onDone: Navigator.of(context).pop,
         done: const Text("Done"),
         dotsFlex: 3,
@@ -143,7 +143,7 @@ class face_id_login_page extends StatelessWidget {
           PageViewModel(
             title: 'Зачем нужна удаленная аутентификация',
             body: 'Для того, чтобы:',
-            image: SvgPicture.asset("assets/page2.svg"),
+            image: SvgPicture.asset("assets/Frame.svg"),
           ),
           PageViewModel(
             title: 'Зачем нужна удаленная аутентификация',

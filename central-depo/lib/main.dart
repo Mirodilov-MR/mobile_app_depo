@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SizeTransition5 extends PageRouteBuilder {
+class Sizetransition extends PageRouteBuilder {
   final Widget page;
 
-  SizeTransition5(this.page)
+  Sizetransition(this.page)
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: Duration(milliseconds: 1000),
