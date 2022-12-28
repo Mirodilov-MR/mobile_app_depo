@@ -404,7 +404,7 @@ class _list_of_serviceState extends State<list_of_service>
       child: Transform.translate(
         offset: Offset(0, _animation2.value),
         child: Container(
-          height: _w / 2.3,
+          height: _w / 3, //size of cards
           width: _w,
           padding: EdgeInsets.fromLTRB(_w / 20, 0, _w / 20, _w / 20),
           child: InkWell(
@@ -428,7 +428,7 @@ class _list_of_serviceState extends State<list_of_service>
                   children: [
                     Container(
                       height: _w / 3,
-                      width: _w / 3,
+                      width: _w / 4.8,
                       decoration: BoxDecoration(
                           color: Colors.white.withOpacity(.2),
                           borderRadius: BorderRadius.circular(20)),
@@ -438,7 +438,7 @@ class _list_of_serviceState extends State<list_of_service>
                         size: _w / 8,
                       ),
                     ),
-                    SizedBox(width: _w / 40),
+                    SizedBox(width: _w / 30),
                     SizedBox(
                       width: _w / 2.05,
                       child: Column(
@@ -470,16 +470,6 @@ class _list_of_serviceState extends State<list_of_service>
                           //     fontWeight: FontWeight.w600,
                           //   ),
                           // ),
-                          Text(
-                            'Tap to know more',
-                            maxLines: 1,
-                            softWrap: true,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: _w / 30,
-                            ),
-                          ),
                         ],
                       ),
                     ),
@@ -538,9 +528,7 @@ class RouteWhereYouGo1 extends StatelessWidget {
         elevation: 50,
         centerTitle: true,
         shadowColor: Colors.black.withOpacity(.5),
-        title: Text(
-          'EgdfgXAMPLE  PAGE1',
-        ),
+        title: Text('EgdfgXAMPLE  PAGE1'),
       ),
     );
   }

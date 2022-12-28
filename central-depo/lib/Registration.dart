@@ -4,7 +4,8 @@ import 'main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'intro_slider.dart';
-import 'Untitled-2.dart';
+import 'privacy_terms.dart';
+import 'form3.dart';
 
 class SecondRoute extends StatelessWidget {
   const SecondRoute({super.key});
@@ -50,11 +51,11 @@ class SecondRoute extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  Sizetransition(TextFormFieldExample()),
+                  Sizetransition(FormScreen()),
                 );
               },
               child: const Text(
-                'test button',
+                'privacy',
                 style: TextStyle(fontSize: 17, color: Colors.black),
               ),
             ),
