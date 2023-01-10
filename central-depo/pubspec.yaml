@@ -52,6 +52,7 @@ dependencies:
   cupertino_tabbar: ^2.0.0
   new_gradient_app_bar: ^0.2.0
   readmore: ^2.2.0
+  babstrap_settings_screen: ^0.1.3
 
 dev_dependencies:
   flutter_test:
@@ -84,6 +85,7 @@ flutter:
     - assets/hand_shake.svg
     - assets/logo_n.svg
     - assets/Frame.svg
+    - assets/profile3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

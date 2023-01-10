@@ -3,8 +3,6 @@ import 'main.dart';
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
 
-
-
 class FormScreen extends StatefulWidget {
   @override
   _FormScreenState createState() => _FormScreenState();
@@ -28,27 +26,18 @@ class _FormScreenState extends State<FormScreen> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        brightness: Brightness.light,
-        flexibleSpace: ClipRect(
-          child: BackdropFilter(
-            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
-            child: Container(
-              color: Colors.transparent,
-            ),
-          ),
-        ),
+        backgroundColor: Color.fromARGB(249, 64, 89, 141),
         title: Text(
           'Заявление',
-          style: TextStyle(color: Color.fromARGB(255, 2, 2, 2), fontSize: 20),
+          style: TextStyle(
+              color: Color.fromARGB(255, 253, 253, 253), fontSize: 20),
         ),
       ),
       // backgroundColor: Colors.blue,
       body: Form(
         key: _formKey,
         child: ListView(
-          padding: EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(15.0),
           children: <Widget>[
             const SizedBox(
               height: 70.0,
@@ -59,12 +48,12 @@ class _FormScreenState extends State<FormScreen> {
                 controller: JSHSHRController,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'JSHSHR yozing';
+                    return 'JSHSHIR yozing';
                   }
                   return null;
                 },
                 decoration: InputDecoration(
-                  labelText: 'JSHSHR',
+                  labelText: 'JSHSHIR',
                   // prefixIcon: Icon(Icons.numbers),
                   hintText: "14 raqamdan iborat",
                   enabledBorder: OutlineInputBorder(
@@ -304,7 +293,7 @@ class _FormScreenState extends State<FormScreen> {
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
                   labelText: "Tug'ilgan sana",
-                  hintText: "19.09.1991",
+                  hintText: "kk/oy/yyyy",
                   prefixIcon: Icon(Icons.date_range),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(15.0)),
@@ -348,10 +337,8 @@ class _FormScreenState extends State<FormScreen> {
                   debugPrint("Familya is ${FamilyaController.text}");
                   debugPrint("Sharif is ${SharifController.text}");
                   debugPrint("Tugilgan_Joy is ${Tugilgan_JoyController.text}");
-                  debugPrint(
-                      "Tugilgan_sana is ${Tugilgan_sanaController.text}");
-                  debugPrint(
-                      "Tugilgan_mamlakat is ${Tugilgan_mamlakatController}");
+                  debugPrint("Tugilgan_sana is ${Tugilgan_sanaController.text}");
+                  debugPrint("Tugilgan_mamlakat is ${Tugilgan_mamlakatController}");
                   Navigator.push(
                     context,
                     Sizetransition(Oferta()),
@@ -515,29 +502,73 @@ class Oferta extends StatelessWidget {
         centerTitle: true,
         brightness: Brightness.dark,
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.fromLTRB(15, 15, 15, 60),
-          child: ReadMoreText(
-            content,
-            trimLines: 20,
-            textAlign: TextAlign.justify,
-            trimMode: TrimMode.Line,
-            trimCollapsedText: " Batafsil ko'rish ",
-            trimExpandedText: " Qisqartirish",
-            lessStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 209, 21, 21),
+      body: Container(
+        child: Stack(
+          children: <Widget>[
+            Container(
+              child: SingleChildScrollView(
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(15, 15, 15, 60),
+                  child: ReadMoreText(
+                    content,
+                    trimLines: 20,
+                    textAlign: TextAlign.justify,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: " Batafsil ko'rish ",
+                    trimExpandedText: " Qisqartirish",
+                    lessStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 209, 21, 21),
+                    ),
+                    moreStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 209, 21, 21),
+                    ),
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: 2,
+                    ),
+                  ),
+                ),
+              ),
             ),
-            moreStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(255, 209, 21, 21),
-            ),
-            style: TextStyle(
-              fontSize: 16,
-              height: 2,
-            ),
-          ),
+            // SizedBox(height: 20,),
+            Positioned(
+              bottom: 0,
+              left: 0,
+              right: 0,
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: ButtonTheme(
+                  minWidth: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        fixedSize: const Size(310, 50),
+                        primary: Color.fromARGB(
+                            249, 64, 89, 141), //background color of button
+                        side: BorderSide(
+                            width: 1,
+                            color: Colors.grey), //border width and color
+                        elevation: 5, //elevation of button
+                        shape: RoundedRectangleBorder(
+                            //to set border radius to button
+                            borderRadius: BorderRadius.circular(10)),
+                        padding:
+                            EdgeInsets.all(0) //content padding inside button
+                        ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        Sizetransition(Oferta()),
+                      );
+                    },
+                    child: Text("Keyingisi", style: TextStyle(fontSize: 17)),
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );

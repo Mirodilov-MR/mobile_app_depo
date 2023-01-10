@@ -31,15 +31,6 @@ import 'dart:async';
 // }
 
 
-
-
-
-
-
-
-
-
-
 class MyCustomSplashScreen extends StatefulWidget {
   @override
   _MyCustomSplashScreenState createState() => _MyCustomSplashScreenState();

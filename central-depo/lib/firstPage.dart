@@ -1,5 +1,6 @@
 import 'dart:ui';
-
+import 'package:babstrap_settings_screen/babstrap_settings_screen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -94,7 +95,7 @@ class _Outgoing_requestsState extends State<Outgoing_requests> {
           ),
           child: Center(
             child: Text(
-              'List',
+              'Send',
               style: TextStyle(
                 fontSize: 48.0,
                 fontWeight: FontWeight.bold,
@@ -179,50 +180,162 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          centerTitle: true,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          brightness: Brightness.light,
-          flexibleSpace: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
-              child: Container(
-                color: Colors.transparent,
-              ),
+      backgroundColor: Color.fromARGB(181, 33, 37, 243),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        centerTitle: true,
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        brightness: Brightness.light,
+        flexibleSpace: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 7, sigmaY: 7),
+            child: Container(
+              color: Colors.transparent,
             ),
-          ),
-          title: Text(
-            'Аккаунт',
-            style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
-        body: Center(
-          child: Container(
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                colors: [
-                  Color(0xff7DDFFF),
-                  Color.fromARGB(255, 11, 7, 221),
-                ],
-              ),
+        title: Text(
+          'Аккаунт',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            // user card
+            SimpleUserCard(
+              userName: "Mirodilov Mirmakhmud",
+              userProfilePic: AssetImage("assets/profile3.jpg"),
             ),
-            child: Center(
-              child: Text(
-                'List',
-                style: TextStyle(
-                  fontSize: 48.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            SettingsGroup(
+              items: [
+                SettingsItem(
+                  onTap: () {},
+                  icons: CupertinoIcons.news,
+                  iconStyle: IconStyle(),
+                  title: 'Сменить анкетные данные',
+                  // subtitle: "",
                 ),
-              ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: CupertinoIcons.bell,
+                  iconStyle: IconStyle(
+                    iconsColor: Colors.white,
+                    withBackground: true,
+                    backgroundColor: Colors.red,
+                  ),
+                  title: 'Настройки уведомлений',
+                  // subtitle: "",
+                ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: Icons.language_outlined,
+                  iconStyle: IconStyle(
+                    iconsColor: Colors.white,
+                    withBackground: true,
+                    backgroundColor: Colors.blue,
+                  ),
+                  title: 'Сменить язык',
+                  // subtitle: "",
+                ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: Icons.contact_phone_outlined,
+                  iconStyle: IconStyle(
+                    iconsColor: Colors.white,
+                    withBackground: true,
+                    backgroundColor: Colors.green,
+                  ),
+                  title: 'Связаться с оператором',
+                  // subtitle: "",
+                ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: Icons.dark_mode_rounded,
+                  iconStyle: IconStyle(
+                    iconsColor: Colors.white,
+                    withBackground: true,
+                    backgroundColor: Colors.red,
+                  ),
+                  title: 'Dark mode',
+                  subtitle: "Automatic",
+                  trailing: Switch.adaptive(
+                    value: false,
+                    onChanged: (value) {},
+                  ),
+                ),
+              ],
             ),
-          ),
-        ));
+            SettingsGroup(
+              items: [
+                SettingsItem(
+                  onTap: () {},
+                  icons: Icons.info_rounded,
+                  iconStyle: IconStyle(
+                    backgroundColor: Colors.purple,
+                  ),
+                  title: 'О программа',
+                  subtitle: "Узнать больше о UZCSD",
+                ),
+              ],
+            ),
+            // You can add a settings title
+            SettingsGroup(
+              settingsGroupTitle: "Account",
+              items: [
+                SettingsItem(
+                  onTap: () {},
+                  icons: Icons.exit_to_app_rounded,
+                  title: "Sign Out",
+                ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: CupertinoIcons.repeat,
+                  title: "Изменить аккаунт",
+                ),
+                SettingsItem(
+                  onTap: () {},
+                  icons: CupertinoIcons.delete_solid,
+                  title: "Delete account",
+                  titleStyle: TextStyle(
+                    color: Colors.red,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+
+      // body: Center(
+      //   child: Container(
+      //     decoration: BoxDecoration(
+      //       gradient: LinearGradient(
+      //         begin: Alignment.topRight,
+      //         end: Alignment.bottomLeft,
+      //         colors: [
+      //           Color(0xff7DDFFF),
+      //           Color.fromARGB(255, 11, 7, 221),
+      //         ],
+      //       ),
+      //     ),
+      //     child: Center(
+      //       child: Text(
+      //         'dsadsa',
+      //         style: TextStyle(
+      //           fontSize: 48.0,
+      //           fontWeight: FontWeight.bold,
+      //           color: Colors.white,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // ),
+    );
   }
 }
 
